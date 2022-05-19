@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon>home</mat-icon>
+  </button>
+  <span>InvadeV</span>
+  <span class="spacer"></span>
+  <img class="profile" height="32" width="32" src="{{user?.photoURL || 'https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png'}}">
+  <h3> {{user?.displayName || 'Guest User'}} </h3>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Go to dashboard</button>
+    <hr>
+    <button mat-menu-item style="text-align: center;" (click)="handleLogout()">
+      <button mat-button color="warn"> logout </button>
+    </button>
+  </mat-menu>
+</mat-toolbar>

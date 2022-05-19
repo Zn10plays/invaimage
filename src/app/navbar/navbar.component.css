@@ -1,0 +1,16 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.logo {
+  margin-left: 5px;
+}
+
+.m-2 {
+  margin-left: 5px;
+}
+
+.profile {
+  border-radius: 30px;
+  margin-right: 10px;
+}
