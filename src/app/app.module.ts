@@ -22,13 +22,20 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import {MatMenuModule} from '@angular/material/menu';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { AddformComponent } from './addform/addform.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DashboardComponent,
+    ToolbarComponent,
+    AddformComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatIconModule,
     MatToolbarModule,
     FormsModule,
+    MatSidenavModule,
     MatMenuModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

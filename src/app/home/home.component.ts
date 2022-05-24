@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Auth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { FormControl, Validators } from '@angular/forms';
+import { AccountManagementService } from '../accounts/account-management.service';
 
 @Component({
   selector: 'app-home',
@@ -12,16 +12,19 @@ export class HomeComponent {
   password = new FormControl('', [Validators.required])
 
 
-  constructor(public auth: Auth) {}
+  constructor(public auth: AccountManagementService) {}
 
   handleLoginWithCredit() {
     if (this.email.invalid) return;
     if (this.password.invalid) return;
-    signInWithEmailAndPassword(this.auth, this.email.value, this.password.value)
+    this.auth.loginWithCredit(this.email.value, this.password.value)
   }
 
   handleSignWithGoogle() {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(this.auth, provider);
+    this.auth.loginWithGoogle();
+  }
+
+  logout() {
+    this.auth.logOut();
   }
 }

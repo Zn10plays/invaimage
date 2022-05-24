@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth, User } from '@angular/fire/auth';
+import { User } from '@angular/fire/auth';
+import { AccountManagementService } from '../accounts/account-management.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,16 +8,12 @@ import { Auth, User } from '@angular/fire/auth';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public user!: User | null;
-  constructor(private auth: Auth) { }
+  constructor(public auth: AccountManagementService) { }
 
   ngOnInit(): void {
-    this.auth.onAuthStateChanged(currentUser => {
-      this.user = currentUser;
-    })
   }
 
   public handleLogout() : void {
-    this.auth.signOut();
+    this.auth.logOut();
   }
 }

@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-content>
+    <form autocomplete="off">
+      <mat-grid-list cols="10" rowHeight="90">
+        <mat-grid-tile colspan="8">
+          <mat-form-field class="text-input">
+            <mat-label> Enter a url or just plain text </mat-label>
+            <input type="text" placeholder="Enter a url or just plain text" matInput [formControl]="control" maxlength="100">
+            <mat-error *ngIf="control.invalid"> don't waist my money please </mat-error>
+            <mat-hint> or you could just drag and drop on the screen </mat-hint>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <button mat-flat-button color="warn" type="submit" class="sub-btn">
+            <mat-icon>add</mat-icon>
+            Add 
+          </button>
+          <button mat-flat-button color="accent" type="button" class="sub-btn"> 
+            <mat-icon> upload </mat-icon>
+            Upload
+          </button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </mat-card-content>
+</mat-card>

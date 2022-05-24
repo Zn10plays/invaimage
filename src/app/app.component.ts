@@ -9,6 +9,7 @@ import { connectFirestoreEmulator, Firestore } from '@angular/fire/firestore';
 })
 export class AppComponent {
   constructor(fb: Firestore, auth: Auth) {
+    connectAuthEmulator(auth, 'http://localhost:9099')
     connectFirestoreEmulator(fb, 'localhost', 8080)
   }
   title = 'invaimage';
