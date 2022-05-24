@@ -1,7 +1,6 @@
-import { User } from '@angular/fire/auth'
 import { Timestamp } from '@angular/fire/firestore'
 
-interface InvaUser extends User {
+export interface InvaUser {
   active: boolean,
   name: string,
   createdAt: Timestamp,
