@@ -1,1 +1,18 @@
-<p>page-not-found works!</p>
+<div class="center">
+  <mat-card>
+    <mat-card-title>
+      <mat-icon color="warn">
+        warning
+      </mat-icon>
+      This page does not exist.
+    </mat-card-title>
+    <mat-card-content>
+      <img src="https:http.cat/400.jpg" alt="">
+    </mat-card-content>
+    <mat-card-footer align="center">
+      {{getError()}}
+      <hr>
+      <button mat-flat-button color="warn" routerLink="/" class="rtn-btn"> go back to home </button>
+    </mat-card-footer>
+  </mat-card>
+</div>

@@ -1,0 +1,10 @@
+.center {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rtn-btn {
+  margin-bottom: 8px;
+}
