@@ -22,7 +22,7 @@ service cloud.firestore {
       allow write: if isNewOrAdmin(user);
     }
     match /posts/{post} {
-      allow read: if post.data.author === request.auth.uid;
+      allow read;
       allow write: if isActive();
     }
   }
