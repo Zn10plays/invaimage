@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { collection, Firestore, serverTimestamp } from '@angular/fire/firestore';
 import { FormControl, Validators } from '@angular/forms';
+import { addDoc } from '@firebase/firestore';
 
 @Component({
   selector: 'app-addform',
@@ -9,9 +11,16 @@ import { FormControl, Validators } from '@angular/forms';
 export class AddformComponent implements OnInit {
   control = new FormControl('', [Validators.required])
 
-  constructor() { }
+  constructor(private firestore: Firestore) { }
 
   ngOnInit(): void {
   }
 
+  handleSubmit(event: Event) {
+    event.preventDefault();
+  }
+
+  addPlainText(text: string) {
+
+  }
 }

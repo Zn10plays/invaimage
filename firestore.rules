@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+
+  match /databases/{database}/documents {
+    function isNewOrAdmin(uid) {
+      return exists(/databases/$(database)/documents/users/$(uid)) != true || hasRole(uid, 'admin');
+    }
+
+    function hasRole(uid, role) {
+      return role in get(/databases/$(database)/documents/users/$(uid)).data.role;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    match /users/{user} {
+      allow read: if true;
+      allow write: if isNewOrAdmin(user);
+    }
+    match /sec/{sec} {
+      allow read;
+      allow write: if hasRole(request.auth.uid, 'admin')
+    }
+  }
+}
