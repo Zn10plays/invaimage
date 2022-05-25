@@ -10,6 +10,10 @@ service cloud.firestore {
       return role in get(/databases/$(database)/documents/users/$(uid)).data.role;
     }
 
+    function isActive() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.active
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
@@ -17,9 +21,9 @@ service cloud.firestore {
       allow read: if true;
       allow write: if isNewOrAdmin(user);
     }
-    match /sec/{sec} {
-      allow read;
-      allow write: if hasRole(request.auth.uid, 'admin')
+    match /posts/{post} {
+      allow read: if post.data.author === request.auth.uid;
+      allow write: if isActive();
     }
   }
 }
