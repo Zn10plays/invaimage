@@ -26,6 +26,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AddformComponent } from './addform/addform.component';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AddformComponent } from './addform/addform.component';
     PageNotFoundComponent,
     DashboardComponent,
     ToolbarComponent,
-    AddformComponent
+    AddformComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

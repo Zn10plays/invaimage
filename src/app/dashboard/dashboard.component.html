@@ -4,8 +4,10 @@
   </mat-drawer>
   <mat-drawer-content>
     <app-addform></app-addform>
-    <mat-grid-list cols="3">
-      <mat-grid-tile>add file :)</mat-grid-tile>
+    <mat-grid-list cols="5">
+      <mat-grid-tile *ngFor="let post of posts">
+        <app-post [post]="post"></app-post>
+      </mat-grid-tile>
     </mat-grid-list>
   </mat-drawer-content>
 </mat-drawer-container>

@@ -61,6 +61,6 @@ export class AccountManagementService {
 
   public logOut() {
     this.auth.signOut();
-    this.user = null;
+    this.invaUserDetail = null;
   }
 }

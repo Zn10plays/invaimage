@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { DatabaseService } from '../database/database.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { DatabaseService } from '../database/database.service';
   styleUrls: ['./addform.component.css']
 })
 export class AddformComponent implements OnInit {
-  control = new FormControl('', [Validators.required])
+  control = new FormControl('')
 
   constructor(private database: DatabaseService) { }
 
@@ -16,8 +16,9 @@ export class AddformComponent implements OnInit {
   }
 
   public handleSubmit() {
+    if (this.control.value === '') return;
     this.database.addTextAsPost(this.control.value);
-    this.resetForm()
+    this.resetForm();
   }
 
   private async resetForm() {
